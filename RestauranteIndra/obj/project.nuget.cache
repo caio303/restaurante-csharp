@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aLh8oXE0w5OwC8Zi5FN+QjwuNe3dymodbDRNVZPrMth1jGGLQnLVF6SO8AxPzh8Rq9UYs3rizuLhSaIlrLek+g==",
+  "dgSpecHash": "jVGJU6TiJh6e+gp9K3UL+0AnMnufbD3btCFERaNxrLLF6ceeGcpDsHGS+qeluLcF317SBc5pojAhEXhGUa/Bxw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\caioa\\source\\repos\\RestauranteIndra\\RestauranteIndra\\RestauranteIndra.csproj",
+  "projectFilePath": "C:\\Users\\caio.alves\\source\\repos\\restaurante-csharp\\RestauranteIndra\\RestauranteIndra.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

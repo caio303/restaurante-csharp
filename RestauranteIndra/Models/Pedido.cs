@@ -33,8 +33,6 @@
                 precoTotal += prato.CalcularPreco();
             }
 
-
-
             return precoTotal;
         }
 
