@@ -1,0 +1,15 @@
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\bin\Debug\net6.0\RestauranteIndra.exe
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\bin\Debug\net6.0\RestauranteIndra.deps.json
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\bin\Debug\net6.0\RestauranteIndra.runtimeconfig.json
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\bin\Debug\net6.0\RestauranteIndra.dll
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\bin\Debug\net6.0\RestauranteIndra.pdb
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\RestauranteIndra.csproj.AssemblyReference.cache
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\RestauranteIndra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\RestauranteIndra.AssemblyInfoInputs.cache
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\RestauranteIndra.AssemblyInfo.cs
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\RestauranteIndra.csproj.CoreCompileInputs.cache
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\RestauranteIndra.dll
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\refint\RestauranteIndra.dll
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\RestauranteIndra.pdb
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\RestauranteIndra.genruntimeconfig.cache
+C:\Users\caioa\source\repos\RestauranteIndra\RestauranteIndra\obj\Debug\net6.0\ref\RestauranteIndra.dll
