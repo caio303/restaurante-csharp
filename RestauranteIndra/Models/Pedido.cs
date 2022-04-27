@@ -2,7 +2,7 @@
 {
     internal class Pedido
     {
-        private static int IdPrato = 1;
+        private int IdPrato = 1;
         public List<Prato> Pratos { get; private set; }
 
         public Promocao? Promocao { get; private set; }
@@ -38,6 +38,11 @@
             return precoTotal;
         }
 
+        public void ZerarPedido()
+        {
+            Pratos.Clear();
+        }
+
         public void AdicionarPromocao(Promocao promocao)
         {
             Promocao = promocao;
@@ -49,7 +54,7 @@
 
             foreach(var prato in Pratos)
             {
-                toString += prato.ToString(IdPrato);
+                toString += prato.ToString(IdPrato) + "\n";
             }
 
             return toString;
