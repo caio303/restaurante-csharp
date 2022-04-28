@@ -30,10 +30,20 @@
 
             foreach (var prato in Pratos)
             {
-                precoTotal += prato.CalcularPreco();
+                precoTotal += prato.Preco;
             }
 
             return precoTotal;
+        }
+
+        public double DescontarPromocao(double precoTotal)
+        {
+            if (Promocao == null) return 0;
+
+            precoTotal = Promocao.DescontarPrecoFinal(this);
+
+            return precoTotal;
+
         }
 
         public void ZerarPedido()
@@ -53,6 +63,14 @@
             foreach(var prato in Pratos)
             {
                 toString += prato.ToString(IdPrato) + "\n";
+            }
+
+            toString += string.Format("\nValor Total do Pedido: {0:C2}\n\n",CalcularPrecoTotal());
+
+            if (Promocao != null)
+            {
+                toString += "Promoção: -50% no terceiro prato! (desconto aplicado automaticamente)\n";
+                toString += string.Format("Valor Final com Desconto: {0:C2}\n",DescontarPromocao(CalcularPrecoTotal()));
             }
 
             return toString;

@@ -2,7 +2,7 @@
 {
     internal class Prato
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Foto { get; private set; }
         public string Nome { get; private set; }
         public List<Ingrediente> Ingredientes { get; private set; }
@@ -14,7 +14,7 @@
             Nome = nome;
             Ingredientes = new List<Ingrediente>();
             Preco = 0;
-            Id = null;
+            Id = 0;
         }
 
         public void AdicionarIngrediente(Ingrediente ingd)
@@ -47,19 +47,18 @@
             return pesoTotal;
         }
 
-        public double CalcularPreco()
+        public Prato Clonar()
         {
-            return Preco;
+            return (Prato) MemberwiseClone();
         }
 
         public string ToString(int id)
         {
             string toString = "";
 
-            toString += String.Format("{0}\n",Foto);
+            toString += string.Format("{0}\n",Foto);
 
-            if(Id == null) toString += String.Format(" # {0}\n",Nome);
-            else toString += String.Format(" {0}- {1}\n",Id,Nome);
+            toString += string.Format(" {0}- {1}\n",Id,Nome);
 
             foreach(var ingrediente in Ingredientes)
             {
@@ -67,7 +66,7 @@
                 toString += ingrediente.ToString();
             }
 
-            toString += String.Format(" Total: {0} - Peso: {1} gramas\n",Preco,CalcularPesoEmGramas());
+            toString += string.Format(" Total: {0:C2} - Peso: {1} gramas\n",Preco,CalcularPesoEmGramas());
 
             return toString;
         }

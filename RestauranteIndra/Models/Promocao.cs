@@ -8,7 +8,6 @@ namespace RestauranteIndra.Models
 {
     internal class Promocao
     {
-
         public double DescontarPrecoFinal(Pedido pedidoFinal)
         {
             double desconto = 0;

@@ -34,10 +34,10 @@
         {
             string toString = "";
 
-            toString += String.Format("{0}", Nome);
+            toString += string.Format("{0}", Nome);
 
-            if (PesoEmGramas != null) toString += String.Format(": {0} gramas\n", PesoEmGramas);
-            else toString += String.Format(": {0} mililitros\n", VolumeEmMililitros);
+            if (PesoEmGramas != null) toString += string.Format(": {0} gramas\n", PesoEmGramas);
+            else toString += string.Format(": {0} mililitros\n", VolumeEmMililitros);
 
             return toString;
         }

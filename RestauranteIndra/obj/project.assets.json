@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\caio.alves\\.nuget\\packages\\": {}
+    "C:\\Users\\caioa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caio.alves\\source\\repos\\restaurante-csharp\\RestauranteIndra\\RestauranteIndra.csproj",
+      "projectUniqueName": "C:\\Users\\caioa\\source\\repos\\RestauranteIndra\\restaurante-csharp\\RestauranteIndra\\RestauranteIndra.csproj",
       "projectName": "RestauranteIndra",
-      "projectPath": "C:\\Users\\caio.alves\\source\\repos\\restaurante-csharp\\RestauranteIndra\\RestauranteIndra.csproj",
-      "packagesPath": "C:\\Users\\caio.alves\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caio.alves\\source\\repos\\restaurante-csharp\\RestauranteIndra\\obj\\",
+      "projectPath": "C:\\Users\\caioa\\source\\repos\\RestauranteIndra\\restaurante-csharp\\RestauranteIndra\\RestauranteIndra.csproj",
+      "packagesPath": "C:\\Users\\caioa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\caioa\\source\\repos\\RestauranteIndra\\restaurante-csharp\\RestauranteIndra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\caio.alves\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\caioa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
