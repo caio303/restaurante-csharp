@@ -4,18 +4,12 @@
     {
         private int IdPrato = 1;
         public List<Prato> Pratos { get; private set; }
+        private readonly DateTime DataDeEmissao;
 
-        public Promocao? Promocao { get; private set; }
-
-        public Pedido(Promocao promocao)
-        {
-            Pratos = new List<Prato>();
-            Promocao = promocao;
-        }
         public Pedido()
         {
+            DataDeEmissao = DateTime.Today;
             Pratos = new List<Prato>();
-            Promocao = null;
         }
 
         public void AdicionarPrato(Prato prato)
@@ -24,36 +18,33 @@
             Pratos.Add(prato);
         }
 
-        public double CalcularPrecoTotal()
+        public double CalcularPrecoTotalComOuSemPromocao()
         {
             double precoTotal = 0;
+            
+            int indiceDoPrato = 0;
 
-            foreach (var prato in Pratos)
+            if(DataDeEmissao.DayOfWeek == DayOfWeek.Tuesday)
             {
-                precoTotal += prato.Preco;
+                foreach (var prato in Pratos)
+                {
+                    precoTotal += indiceDoPrato == 2? (prato.Preco * 0.5) : prato.Preco;
+                    indiceDoPrato++;
+                }
+            }else{
+                foreach (var prato in Pratos)
+                {
+                    precoTotal += prato.Preco;
+                }
             }
 
-            return precoTotal;
-        }
-
-        public double DescontarPromocao(double precoTotal)
-        {
-            if (Promocao == null) return 0;
-
-            precoTotal = Promocao.DescontarPrecoFinal(this);
 
             return precoTotal;
-
         }
 
         public void ZerarPedido()
         {
             Pratos.Clear();
-        }
-
-        public void AdicionarPromocao(Promocao promocao)
-        {
-            Promocao = promocao;
         }
 
         public override string ToString()
@@ -65,12 +56,14 @@
                 toString += prato.ToString(IdPrato) + "\n";
             }
 
-            toString += string.Format("\nValor Total do Pedido: {0:C2}\n\n",CalcularPrecoTotal());
-
-            if (Promocao != null)
+            if (DataDeEmissao.DayOfWeek == DayOfWeek.Tuesday)
             {
-                toString += "Promoção: -50% no terceiro prato! (desconto aplicado automaticamente)\n";
-                toString += string.Format("Valor Final com Desconto: {0:C2}\n",DescontarPromocao(CalcularPrecoTotal()));
+                toString += "Promoção de Terça-Feira: -50% no terceiro prato!\n\n";
+                toString += string.Format("Valor Final com Desconto: {0:C2}\n",CalcularPrecoTotalComOuSemPromocao());
+            }else
+            {
+                toString += string.Format("\nValor Total do Pedido: {0:C2}\n\n", CalcularPrecoTotalComOuSemPromocao());
+                toString += "Temos Promoção na Terça-Feira! Terceiro prato com 50% de desconto!";
             }
 
             return toString;

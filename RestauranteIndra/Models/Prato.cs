@@ -32,7 +32,7 @@
             Ingredientes.Add(ingd);
         }
 
-        public int CalcularPesoEmGramas()
+        public int CalcularPesoEmGramasOuML()
         {
             int pesoTotal = 0;
             foreach (var ingrediente in Ingredientes)
@@ -66,7 +66,15 @@
                 toString += ingrediente.ToString();
             }
 
-            toString += string.Format(" Total: {0:C2} - Peso: {1} gramas\n",Preco,CalcularPesoEmGramas());
+            toString += string.Format(" Total: {0:C2} - Peso: ", Preco);
+            if (!Ingredientes.Any(x => x.EhLiquido.Equals(false)))
+            {
+                toString += string.Format("{0} mL\n", CalcularPesoEmGramasOuML());
+            }
+            else
+            {
+                toString += string.Format("{0} gramas\n", CalcularPesoEmGramasOuML());
+            }
 
             return toString;
         }

@@ -9,9 +9,6 @@ namespace RestauranteIndra
         {
             CultureInfo.CurrentCulture = new CultureInfo("pt-BR");
 
-            //string logoIndra = "  ██╗███╗   ██╗██████╗ ██████╗  █████╗ \n  ██║████╗  ██║██╔══██╗██╔══██╗██╔══██╗\n  ██║██╔██╗ ██║██║  ██║██████╔╝███████║\n  ██║██║╚██╗██║██║  ██║██╔══██╗██╔══██║\n  ██║██║ ╚████║██████╔╝██║  ██║██║  ██║\n  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝\n\n";
-            //string logoPedido = "   _____ ______ _    _   _____  ______ _____ _____ _____   ____  \n  / ____ | ____ | |  | | | __ \\| ____ | __ \\_ _| __ \\ / __ \\ \n| (___ | | __ | |  | | | | __) | | __ | |  | || | | |  | | |  | |\n  \\___ \\| __ | | |  | | | ___ /| __ | | |  | || | | |  | | |  | |\n  ____) | | ____ | | __ | | | |    | | ____ | | __ | || | _ | | __ | | | __ | |\n               | _____ /| ______ |\\____ /  | _ |    | ______ | _____ / _____ | _____ / \\____ /\n\n";
-
             string logoIndra = "███╗   ███╗    ███████╗    ███╗   ██╗    ██╗   ██╗\n████╗ ████║    ██╔════╝    ████╗  ██║    ██║   ██║\n██╔████╔██║    █████╗      ██╔██╗ ██║    ██║   ██║\n██║╚██╔╝██║    ██╔══╝      ██║╚██╗██║    ██║   ██║\n██║ ╚═╝ ██║    ███████╗    ██║ ╚████║    ╚██████╔╝\n╚═╝     ╚═╝    ╚══════╝    ╚═╝  ╚═══╝     ╚═════╝ \n";
             string logoCardapio = " ██████  █████  ██████  ██████   █████  ██████  ██  ██████  \n██      ██   ██ ██   ██ ██   ██ ██   ██ ██   ██ ██ ██    ██ \n██      ███████ ██████  ██   ██ ███████ ██████  ██ ██    ██ \n██      ██   ██ ██   ██ ██   ██ ██   ██ ██      ██ ██    ██ \n ██████ ██   ██ ██   ██ ██████  ██   ██ ██      ██  ██████  \n\n";
             string logoPedido = "███████ ███████ ██    ██     ██████  ███████ ██████  ██ ██████   ██████  \n██      ██      ██    ██     ██   ██ ██      ██   ██ ██ ██   ██ ██    ██ \n███████ █████   ██    ██     ██████  █████   ██   ██ ██ ██   ██ ██    ██ \n     ██ ██      ██    ██     ██      ██      ██   ██ ██ ██   ██ ██    ██ \n███████ ███████  ██████      ██      ███████ ██████  ██ ██████   ██████  \n\n";
@@ -53,13 +50,12 @@ namespace RestauranteIndra
             cardapio.AdicionarPrato(copoDeCerveja);
             cardapio.AdicionarPrato(tortaDeFrango);
 
-            Promocao promocaoDeTercasFeiras = new();
-
             int opcaoAdicionar;
             int opcao;
-            
-            
-            Pedido seuPedido = new(promocaoDeTercasFeiras);
+            int voltarOuSair;
+
+
+            Pedido seuPedido = new();
 
         Navegacao:
             {
@@ -78,7 +74,6 @@ namespace RestauranteIndra
                     
                     try
                     {
-
                         opcao = Convert.ToInt32(Console.ReadLine());
                     }
                     catch(Exception ex)
@@ -105,8 +100,8 @@ namespace RestauranteIndra
                         goto CardapioEAdicionar;
                     }
                 case 3:
-                    {                        
-                        if(seuPedido.CalcularPrecoTotal() == 0)
+                    {
+                        if(seuPedido.CalcularPrecoTotalComOuSemPromocao() == 0)
                         {
                             Console.WriteLine("Seu pedido está vazio, adicione algum prato!\n");
                             Thread.Sleep(1000);
@@ -116,12 +111,11 @@ namespace RestauranteIndra
                         Console.Clear();
                         Console.WriteLine("\n"+logoPedido);
                         Console.WriteLine(seuPedido);
-                        Console.WriteLine(string.Format("Valor Total do Pedido: {0}\n", seuPedido.CalcularPrecoTotal()));
                         goto EfetuarPagamento;
                     }
                 case 4:
                     {
-                        if (seuPedido.CalcularPrecoTotal() == 0)
+                        if (seuPedido.CalcularPrecoTotalComOuSemPromocao() == 0)
                         {
                             Console.WriteLine("Seu pedido está vazio, adicione algum prato!\n");
                             Thread.Sleep(1000);
@@ -137,7 +131,7 @@ namespace RestauranteIndra
                     }
                 case 5:
                     {
-                        if (seuPedido.CalcularPrecoTotal() == 0)
+                        if (seuPedido.CalcularPrecoTotalComOuSemPromocao() == 0)
                         {
                             Console.WriteLine("Seu pedido já está vazio!\n");
                             Thread.Sleep(1000);
@@ -176,8 +170,6 @@ namespace RestauranteIndra
                     {
                         opcaoAdicionar = 0;
                     }
-
-                    
 
                 } while (opcaoAdicionar < 1 || opcaoAdicionar > 5);
 
@@ -219,12 +211,34 @@ namespace RestauranteIndra
                 }
             }
 
-            EfetuarPagamento:
+        EfetuarPagamento:
             {
-                Console.WriteLine(string.Format("Pagamento de {0:C2} efetuado!", seuPedido.DescontarPromocao(seuPedido.CalcularPrecoTotal())));
-                Console.WriteLine("\nObrigado pela preferência!");
-                Console.ReadLine();
-                return;
+
+                do
+                {
+                    Console.WriteLine(string.Format("Pagamento de {0:C2} efetuado!", seuPedido.CalcularPrecoTotalComOuSemPromocao()));
+                    Console.WriteLine("\nObrigado pela preferência!\n");
+                    Console.WriteLine("1 - Voltar ao Menu");
+                    Console.WriteLine("2 - Sair...\n");
+
+                    try
+                    {
+                        voltarOuSair = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception ex)
+                    {
+                        voltarOuSair = 0;
+                    }
+
+                } while (voltarOuSair < 1 || voltarOuSair > 2);
+
+                switch (voltarOuSair)
+                {
+                    case 1:
+                        goto Navegacao;
+                    case 2: return;
+                }
+
             }
         }
     }
