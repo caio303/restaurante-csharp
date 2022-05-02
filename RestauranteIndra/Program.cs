@@ -61,16 +61,28 @@ namespace RestauranteIndra
             {
                 do
                 {
+                    DateTime diaDeHoje = DateTime.Today;
+                    string diaDaSemana = "";
+                    string textoPromocao;
+                    if (diaDeHoje.DayOfWeek == DayOfWeek.Sunday) diaDaSemana = "Domingo";
+                    if (diaDeHoje.DayOfWeek == DayOfWeek.Monday) diaDaSemana = "Segunda-Feira";
+                    if (diaDeHoje.DayOfWeek == DayOfWeek.Tuesday) diaDaSemana = "Terça-Feira";
+                    if (diaDeHoje.DayOfWeek == DayOfWeek.Wednesday) diaDaSemana = "Quarta-Feira";
+                    if (diaDeHoje.DayOfWeek == DayOfWeek.Thursday) diaDaSemana = "Quinta-Feira";
+                    if (diaDeHoje.DayOfWeek == DayOfWeek.Friday) diaDaSemana = "Sexta-Feira";
+                    if (diaDeHoje.DayOfWeek == DayOfWeek.Saturday) diaDaSemana = "Sábado";
+                    textoPromocao = diaDaSemana == "Terça-Feira" ? ", dia de promoção!" : ", às Terças temos promoção!";
                     Console.Clear();
                     Console.WriteLine("\n" + logoIndra);
-                    Console.WriteLine("Bem Vindo ao RESTAURANTE INDRA!");
+                    Console.WriteLine("Bem Vindo ao RESTAURANTE INDRA!\n");
+                    Console.WriteLine($"Hoje é {diaDaSemana}{textoPromocao}");
                     Console.WriteLine("\nEscolha alguma das opções abaixo");
                     Console.WriteLine(" 1 - Ver Cardápio");
                     Console.WriteLine(" 2 - Adicionar Prato ao Pedido");
                     Console.WriteLine(" 3 - Efetuar Pagamento");
                     Console.WriteLine(" 4 - Ver Pedido");
                     Console.WriteLine(" 5 - Zerar Pedido");
-                    Console.WriteLine(" 6 - Sair...\n");
+                    Console.WriteLine($" 6 - Sair...\n");
                     
                     try
                     {
