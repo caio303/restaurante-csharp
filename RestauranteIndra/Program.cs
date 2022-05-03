@@ -88,7 +88,7 @@ namespace RestauranteIndra
                     {
                         opcao = Convert.ToInt32(Console.ReadLine());
                     }
-                    catch(Exception ex)
+                    catch(Exception)
                     {
                         opcao = 0;
                     }
@@ -178,7 +178,7 @@ namespace RestauranteIndra
                     try
                     {
                         opcaoAdicionar = Convert.ToInt32(Console.ReadLine());
-                    }catch (Exception ex)
+                    }catch (Exception)
                     {
                         opcaoAdicionar = 0;
                     }
@@ -225,7 +225,6 @@ namespace RestauranteIndra
 
         EfetuarPagamento:
             {
-
                 do
                 {
                     Console.WriteLine(string.Format("Pagamento de {0:C2} efetuado!", seuPedido.CalcularPrecoTotalComOuSemPromocao()));
@@ -237,7 +236,7 @@ namespace RestauranteIndra
                     {
                         voltarOuSair = Convert.ToInt32(Console.ReadLine());
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         voltarOuSair = 0;
                     }
@@ -247,6 +246,7 @@ namespace RestauranteIndra
                 switch (voltarOuSair)
                 {
                     case 1:
+                        seuPedido.ZerarPedido();
                         goto Navegacao;
                     case 2: return;
                 }

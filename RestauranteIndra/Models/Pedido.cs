@@ -22,22 +22,12 @@
         {
             double precoTotal = 0;
             
-            int indiceDoPrato = 0;
-
-            if(DataDeEmissao.DayOfWeek == DayOfWeek.Tuesday)
+            if(DataDeEmissao.DayOfWeek == DayOfWeek.Tuesday && Pratos.Count() > 2)
             {
-                foreach (var prato in Pratos)
-                {
-                    precoTotal += indiceDoPrato == 2? (prato.Preco * 0.5) : prato.Preco;
-                    indiceDoPrato++;
-                }
+                precoTotal = Pratos.Sum(prato => prato.Equals(Pratos[2])? (prato.Preco * 0.5) : prato.Preco );
             }else{
-                foreach (var prato in Pratos)
-                {
-                    precoTotal += prato.Preco;
-                }
+                precoTotal = Pratos.Sum(prato => prato.Preco);
             }
-
 
             return precoTotal;
         }
@@ -58,7 +48,7 @@
 
             if (DataDeEmissao.DayOfWeek == DayOfWeek.Tuesday)
             {
-                toString += "Promoção de Terça-Feira: -50% no terceiro prato!\n\n";
+                toString += "Promoção de Hoje: -50% no terceiro prato!\n\n";
                 toString += string.Format("Valor Final com Desconto: {0:C2}\n",CalcularPrecoTotalComOuSemPromocao());
             }else
             {
